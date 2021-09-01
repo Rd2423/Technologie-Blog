@@ -28,7 +28,13 @@ Post.init(
           validate: {
               len: [5 , 2000]
           }
-      }
+      },
+      created_at: {
+        type: DataTypes.STRING,
+    },
+    updated_at: {
+        type: DataTypes.STRING,
+    }
     },
     {
       sequelize,

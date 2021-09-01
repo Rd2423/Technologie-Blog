@@ -30,9 +30,15 @@ Comment.init(
       references: {
         model: "post",
         key: "id",
-      },
+      }
     },
-  },
+      created_at: {
+        type: DataTypes.STRING,
+    },
+    updated_at: {
+        type: DataTypes.STRING,
+    }
+},
   {
     sequelize,
     freezeTableName: true,
@@ -40,3 +46,4 @@ Comment.init(
     modelName: "comment",
   }
 );
+module.exports = Comment;
