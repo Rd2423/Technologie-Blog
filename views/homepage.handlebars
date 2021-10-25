@@ -1,5 +1,17 @@
-<article class="post">
-    {{#each post as |post| }}
-        {{> post-info post}}
-    {{/each}}
-</article>
+{{#each posts as |post|}}
+
+  <article class="post">
+    <div class="title">
+      <a href="/post/{{post.id}}">
+        <h2>{{post.title}}</h2></a>
+      <span>by
+        {{post.user.username}}
+        on
+        {{format_date post.created_at}}
+        |
+        <a href="/post/{{post.id}}">{{comments.length}}
+          {{format_plural "comment" post.comments.length}}</a></span>
+    </div>
+    <div class="text">{{post.post_text}}</div>
+  </article>
+{{/each}}

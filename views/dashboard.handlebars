@@ -1,11 +1,28 @@
+<h2 class="dash-title">Your Dashboard</h2>
+<button id="newPost">+ New Post</button>
 {{#if posts.length}}
-<section>
-    <h2>Your Posts</h2>
-        {{#each posts as |post|}}
-            {{> dashboard-postinfo post}}
-        {{/each}}
+  <section>
+    <h2 class="posts-title">Your Posts</h2>
 
-</section>
+    {{#each posts as |post|}}
+
+      <article class="post">
+        <div class="title">
+          <a href="/post/{{post.id}}">
+            <h2>{{title}}</h2>
+          </a>
+          <span>by
+            {{post.user.username}}
+            on
+            {{format_date post.created_at}}
+            |
+            <a href="/post/{{post.id}}">{{comments.length}}
+              {{format_plural "comment" post.comments.length}}</a></span>
+        </div>
+      </article>
+      <a href="/dashboard/edit/{{post.id}}" class="edit-post">Edit post</a>
+    {{/each}}
+
+  </section>
 {{/if}}
-
-<a class="link" href="/new-post">+ New Post</a>
+<script src="/javascript/goto-newpost.js"></script>
